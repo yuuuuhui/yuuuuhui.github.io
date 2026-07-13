@@ -2,9 +2,48 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人主页</title>
+    <title>我的小游戏网站</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 60px);
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .box {
+            width: 60px;
+            height: 60px;
+            background: #4285f4;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .box.hide {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
-    <h1>这是一个标题</h1>
+    <h1>方块消除小游戏</h1>
+    <p>点击蓝色方块，全部消除就算通关！</p>
+    <div id="game-board"></div>
+
+    <script>
+        // 生成游戏方块
+        const board = document.getElementById('game-board');
+        for (let i = 0; i < 20; i++) {
+            const div = document.createElement('div');
+            div.className = 'box';
+            div.onclick = () => div.classList.add('hide');
+            board.appendChild(div);
+        }
+    </script>
 </body>
 </html>
