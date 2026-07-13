@@ -21,11 +21,18 @@
             font-weight: bold;
             cursor: pointer;
             margin-bottom: 40px;
+            transition: opacity 0.5s;
         }
         #rick-video {
             width: 720px;
             max-width: 90vw;
             display: none;
+            /* 旋转动画 */
+            animation: rotate 4s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -39,8 +46,15 @@
     <script>
         const text = document.getElementById('click-text');
         const video = document.getElementById('rick-video');
+
         text.onclick = () => {
+            // 文字消失
+            text.style.opacity = '0';
+            setTimeout(() => text.style.display = 'none', 500);
+
+            // 显示视频、播放、调大音量
             video.style.display = 'block';
+            video.volume = 1; // 最大音量
             video.play();
         }
     </script>
