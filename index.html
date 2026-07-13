@@ -6,38 +6,42 @@
     <title>千万别点</title>
     <style>
         body {
-            background-color: #fff;
+            background-color: #111;
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            font-family: sans-serif;
         }
         #click-text {
-            font-size: 50px;
+            font-size: 60px;
             font-weight: bold;
             cursor: pointer;
+            margin-bottom: 40px;
         }
-        iframe {
-            margin-top: 30px;
-            width: 700px;
-            height: 400px;
+        #rick-video {
+            width: 720px;
+            max-width: 90vw;
             display: none;
-            border: none;
         }
     </style>
 </head>
 <body>
     <div id="click-text">千万不要点</div>
-    <!-- B站Rickroll视频嵌入 -->
-    <iframe id="rick-video" src="https://player.bilibili.com/player.html?aid=1732755" allowfullscreen></iframe>
+    <video id="rick-video" controls>
+        <source src="rickroll.mp4" type="video/mp4">
+        浏览器不支持视频播放
+    </video>
 
     <script>
         const text = document.getElementById('click-text');
-        const iframe = document.getElementById('rick-video');
+        const video = document.getElementById('rick-video');
         text.onclick = () => {
-            iframe.style.display = 'block';
+            video.style.display = 'block';
+            video.play();
         }
     </script>
 </body>
